@@ -1,6 +1,6 @@
-***Selenium waits:***
+___Selenium waits:___
 
- ***Static wait *** - Thread.sleep(milliseconds) -> used to stop the execution for the specified time -> mostly not used in production -> only be used for learning or to check the functionality of the program flow
+ __Static wait__ - Thread.sleep(milliseconds) -> used to stop the execution for the specified time -> mostly not used in production -> only be used for learning or to check the functionality of the program flow
  ***Dynamic waits*** : (This waits will wait until the element is observed, if element observed before timeframe then it will continue to the next block of code execution, Does not wait until the time elapse.
                    If the element is not observed within the timeframe, then TimeoutException will be observed).
 
