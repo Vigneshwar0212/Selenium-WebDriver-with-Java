@@ -1,13 +1,13 @@
-**Selenium waits:**
+***Selenium waits:***
 
- ** Static wait ** - Thread.sleep(milliseconds) -> used to stop the execution for the specified time -> mostly not used in production -> only be used for learning or to check the functionality of the program flow
- ** Dynamic waits** : (This waits will wait until the element is observed, if element observed before timeframe then it will continue to the next block of code execution, Does not wait until the time elapse.
+ ***Static wait *** - Thread.sleep(milliseconds) -> used to stop the execution for the specified time -> mostly not used in production -> only be used for learning or to check the functionality of the program flow
+ ***Dynamic waits*** : (This waits will wait until the element is observed, if element observed before timeframe then it will continue to the next block of code execution, Does not wait until the time elapse.
                    If the element is not observed within the timeframe, then TimeoutException will be observed).
 
-    1. **Implicit waits** - driver.manage().timeouts().implicitlyWaits(Duration.ofSeconds(2); -> if we used this wait above the findelements line, then this wait will be implemented to all the block of code throughtout 
+    1. ***Implicit waits*** - driver.manage().timeouts().implicitlyWaits(Duration.ofSeconds(2); -> if we used this wait above the findelements line, then this wait will be implemented to all the block of code throughtout 
                        entire block of code -> acts as global waits
-    2. **Explicit waits** - WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));     wait.until(ExpectedConditions.visiblityOfElementLocated(By.id("___"));  -> can be used in specific block of code 
+    2. ***Explicit waits*** - WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));     wait.until(ExpectedConditions.visiblityOfElementLocated(By.id("___"));  -> can be used in specific block of code 
                        -> most widely used waits.
-    3. **Fluent waits** - 
+    3. ***Fluent waits*** - 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
