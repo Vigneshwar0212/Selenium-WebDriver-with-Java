@@ -95,3 +95,63 @@ public class Main {
 }
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Negative test scenario
+//Invalid username / password
+
+package SampleTest;
+
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.HashSet;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Main {
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		String exp_url = "https://practicetestautomation.com/practice-test-login/";
+		driver.get(exp_url);
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("submit")));
+        
+        System.out.println("Chromer opened.");
+        
+		WebElement username = driver.findElement(By.xpath("//input[@id=\"username\"]"));
+		username.sendKeys("username");
+		WebElement password = driver.findElement(By.id("password"));
+		password.sendKeys("Password123");
+		WebElement submit = driver.findElement(By.cssSelector(".btn"));
+		submit.click();
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("show")));
+		WebElement value = driver.findElement(By.className("show"));
+		String expected_text = value.getText();
+		if(expected_text.equals("Your username is invalid!")) {
+			System.out.println("Username Text matched");
+		}
+// this block will not be executed as i intendly entered the username as invalid -> entered the password correctly.
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("error")));
+		WebElement value1 = driver.findElement(By.id("error"));
+		String expected_text1 = value1.getText();
+		if(expected_text1.equals("Your password is invalid!")) {
+			System.out.println("Password Text matched");
+		}
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Chrome closed");
+		driver.quit();
+	}
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
