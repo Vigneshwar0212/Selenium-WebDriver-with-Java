@@ -11,3 +11,7 @@ Selenium waits:
     3. Fluent waits - 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+POM (Page Object Model):
+POM (Page Object Model) is a Selenium design pattern where each web page is represented as a separate class containing web elements and reusable methods to improve maintainability and reusability of automation scripts
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
