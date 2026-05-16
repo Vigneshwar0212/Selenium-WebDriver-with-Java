@@ -154,4 +154,108 @@ public class Main {
 }
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//used methods for individual scenarios
+//Created objects
 
+package Selenium_test;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Arraylist {
+	static WebDriver driver;
+	static WebDriverWait wait;
+
+	public static void main(String[] args) {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		String url = "https://practicetestautomation.com/practice-test-login/";
+		driver.get(url);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+		
+		Arraylist arr = new Arraylist();
+		
+		arr.validLoginTest();
+		arr.invalidPassword();
+		arr.invalidUsername();
+		
+		driver.close();
+	}
+
+	public void validLoginTest() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+		
+		WebElement username = driver.findElement(By.id("username"));
+		username.sendKeys("student");
+
+		WebElement password = driver.findElement(By.name("password"));
+		password.sendKeys("Password123");
+
+		WebElement submit = driver.findElement(By.cssSelector("#submit"));
+		submit.click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("post-title")));
+		WebElement success_message = driver.findElement(By.cssSelector(".post-title"));
+		String expectedtext = success_message.getText();
+		String actualtext = "Logged In Successfully";
+		if (actualtext.equals(expectedtext)) {
+			System.out.println("Logged in");
+		} else {
+			System.out.println("Error");
+		}
+
+		WebElement logout = driver.findElement(By.linkText("Log out"));
+		logout.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+	}
+
+	// Negative password
+	public void invalidPassword() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+		WebElement username = driver.findElement(By.id("username"));
+		username.sendKeys("student");
+		WebElement password = driver.findElement(By.name("password"));
+		password.sendKeys("Student");
+		WebElement submit = driver.findElement(By.cssSelector("#submit"));
+		submit.click();
+
+		WebElement p_value = driver.findElement(By.className("show"));
+		String error_password = p_value.getText();
+		if (error_password.equals("Your password is invalid!")) {
+			System.out.println("Negative password - success");
+		} else {
+			System.out.println("Negative password - Negative");
+		}
+
+	}
+
+	// Negative password
+	public void invalidUsername() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+		WebElement username = driver.findElement(By.id("username"));
+		username.sendKeys("Password123");
+		WebElement password = driver.findElement(By.name("password"));
+		password.sendKeys("Password123");
+		WebElement submit = driver.findElement(By.cssSelector("#submit"));
+		submit.click();
+
+		WebElement u_value = driver.findElement(By.id("error"));
+		String error_username = u_value.getText();
+		if (error_username.equals("Your username is invalid!")) {
+			System.out.println("Negative username - success");
+		} else {
+			System.out.println("Negative username - Negative");
+		}
+
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
