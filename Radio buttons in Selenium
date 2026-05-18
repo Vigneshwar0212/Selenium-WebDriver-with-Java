@@ -1,0 +1,45 @@
+//Radio button can only be selected once, unlike checkbox which can select multiple box at a time
+//Selecting the number of radio button select while opening the website with the values/names of the field.
+
+package Selenium_test;
+
+import java.time.Duration;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Arraylist {
+	static WebDriver driver;
+	static WebDriverWait wait;
+	static String url = "https://practice.expandtesting.com/radio-buttons";
+
+	public static void main(String[] args) {
+		driver = new ChromeDriver();
+		driver.get(url);
+		Arraylist arr = new Arraylist();
+		arr.RadioButtonSelected();
+
+		driver.quit();
+	}
+
+	public void RadioButtonSelected() {
+		int count = 0;
+		List<WebElement> elements = driver.findElements(By.xpath("//input[@type = 'radio']"));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		for (WebElement element : elements) {
+
+			if (element.isSelected()) {   
+				
+				System.out.println(element.getAttribute("value"));
+				count++;
+			}
+		}
+		System.out.println(count);
+	}
+
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
