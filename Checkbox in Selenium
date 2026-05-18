@@ -1,0 +1,44 @@
+//counting the checkbox
+
+package Selenium_test;
+
+import java.time.Duration;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Arraylist {
+	static WebDriver driver;
+	static WebDriverWait wait;
+	static String url = "https://www.ironspider.ca/forms/checkradio.htm";
+
+	public static void main(String[] args) {
+		driver = new ChromeDriver();
+		driver.get(url);
+		Arraylist arr = new Arraylist();
+		arr.Checkboxselected();
+
+		driver.quit();
+	}
+
+	public void Checkboxselected() {
+		int selected_count = 0;
+		
+		List<WebElement> elements = driver.findElements(By.xpath("//input[@type = 'checkbox']"));
+
+		for (WebElement element : elements) {
+			element.click();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+			if (element.isSelected() == true) {
+				selected_count++;
+			}
+		}
+		System.out.println(selected_count);
+	}
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
