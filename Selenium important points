@@ -71,4 +71,6 @@ findelement - it will throw exception as NoSuchElementException
 findelements - it will return 0 / empty list -> it doesn't throw any exceptions
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//customized locators 
+// css selector and xpath
 
