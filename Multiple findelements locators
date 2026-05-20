@@ -1,0 +1,24 @@
+//classname locator
+package Selenium_test;
+
+import java.util.List;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Arraylist {
+	static WebDriver driver;
+	static String url = "https://www.opencart.com/";
+	public static void main(String[] args) {
+		driver = new ChromeDriver();
+		driver.get(url);
+		driver.manage().window().maximize();
+		
+		List<WebElement> headerlinks = driver.findElements(By.className("col-sm-2"));
+		int size1 = headerlinks.size();
+		System.out.println("Total headers are: "+size1);
+	}
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
