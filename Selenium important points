@@ -37,5 +37,5 @@ String is immutable.
 2. name
 
 The below is only to use in place of links
-1. linkText
+1. linkText - this text will be observed in <a href = "Links">text </a> -> <a href="https://www.opencart.com/index.php?route=cms/feature">Features</a> , here Feature is a link text.
 2. partialLinkText
