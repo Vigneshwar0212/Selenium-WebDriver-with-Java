@@ -21,4 +21,30 @@ public class Arraylist {
 	}
 }
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//tagName locators
+package Selenium_test;
+
+import java.util.List;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Arraylist {
+	static WebDriver driver;
+	static String url = "https://www.opencart.com/";
+	public static void main(String[] args) {
+		driver = new ChromeDriver();
+		driver.get(url);
+		driver.manage().window().maximize();
+		
+		List<WebElement> headertags = driver.findElements(By.tagName("a"));
+		int size1 = headertags.size();
+		System.out.println("Total headers are: "+size1);
+		
+		driver.quit();
+	}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
