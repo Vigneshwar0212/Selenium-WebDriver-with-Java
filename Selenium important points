@@ -55,5 +55,20 @@ partialLinkText - <a href="https://www.opencart.com/index.php?route=marketplace/
 
 2.Tagname - used to fetch all the tag name in the web page like a,div,input,button,etc -> List<WebElement> headertags = driver.findElements(By.tagName("a"));
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Difference between findelement and findelements
+
+Scenario 1: (single webelement)
+findelement - it will return single webelement
+findelements - if the locator has single webelement -> it will print the webelement with a return type of list webelement
+
+Scenario 2: (what if multiple webelement found)
+findelement - it will print the first webelement with matching locator
+findelements - it will print all the webelements that are matching the locators.
+
+Scenario 3: (What if no webelement matches the locator)
+findelement - it will throw exception as NoSuchElementException
+findelements - it will return 0 / empty list -> it doesn't throw any exceptions
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
