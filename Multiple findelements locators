@@ -16,7 +16,7 @@ public class Arraylist {
 		driver.manage().window().maximize();
 		
 		List<WebElement> headerlinks = driver.findElements(By.className("col-sm-2"));
-		int size1 = headerlinks.size();
+		int size1 = headerlinks.size();               //size() method will be used to print the total number in LIST like length in arrays
 		System.out.println("Total headers are: "+size1);
 	}
 }
