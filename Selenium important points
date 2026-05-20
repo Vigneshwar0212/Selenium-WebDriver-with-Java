@@ -51,7 +51,7 @@ partialLinkText - <a href="https://www.opencart.com/index.php?route=marketplace/
 
 //Used to find multiple webelements using the below locators
 1. Class -  List<WebElement> headerlinks = driver.findElements(By.className("abcd")); - it will fetch for multiple element which has a same class name
-            -> so using list as a data type, return type is WebElements and using findelements to find multiple webelements
+            -> so using list WebElements as a return type and using findelements to find multiple webelements
 
 2.Tagname - used to fetch all the tag name in the web page like a,div,input,button,etc -> List<WebElement> headertags = driver.findElements(By.tagName("a"));
 
