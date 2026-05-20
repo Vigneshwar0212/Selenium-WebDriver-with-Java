@@ -38,7 +38,11 @@ String is immutable.
 
 The below is only to use in place of links
 
-1. linkText - this text will be observed in <a href = "Links">text </a> -> <a href="https://www.opencart.com/index.php?route=cms/feature">Features</a> , here Feature is a link text.
+1. linkText - this locator will be observed in <a href = "Links">text </a> -> <a href="https://www.opencart.com/index.php?route=cms/feature">Features</a> , here Feature is a link text.
 //driver.findElement(By.linkText("Features")).click();
 
-2. partialLinkText
+2. partialLinkText - this locator will be observed as the above linkText - <a href = "Links">text </a> -> but here we no need to provide the entire linkText, instead we can provide partial of the text. Ex: linktext - Marketplace, partialLinkText - Market
+                     it is not prefered anyway, as it will locate some other locators and display wrong output. -> partial text can be any part of the text.
+
+linkText = <a href="https://www.opencart.com/index.php?route=marketplace/extension">Marketplace</a>
+partialLinkText - <a href="https://www.opencart.com/index.php?route=marketplace/extension">place</a>
