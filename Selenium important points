@@ -17,10 +17,13 @@ POM (Page Object Model) is a Selenium design pattern where each web page is repr
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Mutable - the value of the varaible can be changed by doing some actions -> EX: sorting an array elements of a variable, adding elements to the array.
 
+StringBuilder, StringBuffer -  is a mutable.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Immutable - the value of the variable cannot be changed by doing an actions -> the original value will not be changed
 String s = "Apple";
 s.concat("banana");  //if we need to change the value it need to be stored in the different variable.
 System.out.println(s);  //output -> Apple
+
+String is immutable.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
