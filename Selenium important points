@@ -49,6 +49,6 @@ linkText = <a href="https://www.opencart.com/index.php?route=marketplace/extensi
 partialLinkText - <a href="https://www.opencart.com/index.php?route=marketplace/extension">place</a>
 
 //Used to find multiple webelements using the below locators
-1. Class - 
+1. Class -  List<WebElement> headerlinks = driver.findElements(By.className("abcd")); - it will fetch for multiple element which has a same class name-> so using list as a data type and using findelements to find multiple webelements
 
 2.Tagname - 
