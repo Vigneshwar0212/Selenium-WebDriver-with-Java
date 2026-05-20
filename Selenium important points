@@ -15,3 +15,12 @@ POM (Page Object Model):
 POM (Page Object Model) is a Selenium design pattern where each web page is represented as a separate class containing web elements and reusable methods to improve maintainability and reusability of automation scripts
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Mutable - the value of the varaible can be changed by doing some actions -> EX: sorting an array elements of a variable, adding elements to the array.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Immutable - the value of the variable cannot be changed by doing an actions -> the original value will not be changed
+String s = "Apple";
+s.concat("banana");  //if we need to change the value it need to be stored in the different variable.
+System.out.println(s);  //output -> Apple
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
