@@ -1,0 +1,82 @@
+package Selenium_test;
+
+import org.openqa.selenium.WebElement;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Arraylist {
+	static WebDriver driver;
+	static WebDriverWait wait;
+	static String url = "https://www.amazon.in/";
+
+	public static void main(String[] args) {
+		driver = new ChromeDriver();
+		System.out.println("Browser opened");
+		driver.manage().window().maximize();
+		driver.get(url);
+		Arraylist arr = new Arraylist();
+		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+		arr.searchItems();
+		arr.homePage();
+		arr.mobilesearch();
+		arr.checkbox();
+		driver.navigate().back();
+		arr.dragdown();
+
+		System.out.println("Test finished...");
+
+		driver.manage().window().minimize();
+		driver.quit();
+		System.out.println("Browser closed");
+	}
+
+	public void searchItems() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("twotabsearchtextbox")));
+		WebElement search = driver.findElement(By.id("twotabsearchtextbox"));
+		search.sendKeys("Laptops");
+		WebElement select = driver.findElement(By.id("nav-search-submit-button"));
+		select.click();
+	}
+
+	public void homePage() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nav-logo-sprites")));
+		WebElement homepage = driver.findElement(By.id("nav-logo-sprites"));
+		homepage.click();
+	}
+	
+	public void mobilesearch() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("twotabsearchtextbox")));
+		WebElement search = driver.findElement(By.id("twotabsearchtextbox"));
+		search.sendKeys("mobile");
+		WebElement select = driver.findElement(By.id("nav-search-submit-button"));
+		select.click();
+	}
+	
+	public void checkbox() {
+		List<WebElement> check = driver.findElements(By.className("a-size-base"));
+		System.out.println(check.size());
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		WebElement tomorrow = driver.findElement(By.linkText("Get It by Tomorrow"));
+		tomorrow.click();
+		System.out.println("Successfully selected the filter");
+	}
+
+	public void dragdown() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Conditions of Use & Sale")));
+		WebElement bottompage = driver.findElement(By.linkText("Conditions of Use & Sale"));
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].scrollIntoView(true);", bottompage);
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
