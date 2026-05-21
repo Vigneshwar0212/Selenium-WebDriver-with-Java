@@ -76,5 +76,5 @@ findelements - it will return 0 / empty list -> it doesn't throw any exceptions
 // CSS (Cascading Style Sheets) selector: (adding tags is optional -> we can use css selector for id as #id)
 1. tag id -> html_tag#id
 2. tag name -> html_tag.class_name
-3. tag attribute -> tag[attribute = value] (values can be enclosed within '' or "" quotes) 
+3. tag attribute -> tag[attribute = value] (values can be enclosed within '' or "" quotes) [[so important -> in java text which is enclosed within "" cannot be hold value with "", so we need to mention the value in ("tagname[attribute ='value']") or by using ("tagname[attribute =\"value\"]")  ]]
 4. tag class attribute -> tag.class_name[attribute = value] (values can be enclosed within '' or "" quotes)
