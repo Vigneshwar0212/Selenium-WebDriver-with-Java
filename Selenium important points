@@ -73,7 +73,7 @@ findelements - it will return 0 / empty list -> it doesn't throw any exceptions
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //customized locators - in a complex websites -> using one locator is not enough for finding the web element -> in that case, we use to specify the targeted element by using customized locators 
                         -> uses tag and attribute values to locate a element
-// CSS (Cascading Style Sheets) selector:
+// CSS (Cascading Style Sheets) selector: (adding tags is optional -> we can use css selector for id as #id)
 1. tag id -> html_tag#id
 2. tag name -> html_tag.class_name
 3. tag attribute -> tag[attribute = value] (values can be enclosed within '' or "" quotes) 
