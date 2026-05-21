@@ -78,3 +78,11 @@ findelements - it will return 0 / empty list -> it doesn't throw any exceptions
 2. tag name -> html_tag.class_name
 3. tag attribute -> tag[attribute = value] (values can be enclosed within '' or "" quotes) [[so important -> in java text which is enclosed within "" cannot be hold value with "", so we need to mention the value in ("tagname[attribute ='value']") or by using ("tagname[attribute =\"value\"]")  ]]
 4. tag class attribute -> tag.class_name[attribute = value] (values can be enclosed within '' or "" quotes)
+   -> it will be used if incase we have two fields
+    username - _____________     <input class = "abcd" name = "123">
+    password - _____________     <input class = "abcd" name = "567">
+in the above two input fields the class name is same and other locator primary like id, class, linkText, partialLinkText are not same or not available, then we can use this cssSelector method to locate the web element
+by (By.cssSelector("input.abcd[name='123']")); - username field or (By.cssSelector("input.abcd[name=\"567\"]")); - password field
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
