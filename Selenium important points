@@ -85,4 +85,10 @@ in the above two input fields the class name is same and other locator primary l
 by (By.cssSelector("input.abcd[name='123']")); - username field or (By.cssSelector("input.abcd[name=\"567\"]")); - password field
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//tools and extensions for automation testing
+
+
+1. SelectorHub - chrome extension for locators.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
