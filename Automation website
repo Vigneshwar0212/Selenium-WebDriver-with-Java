@@ -1,3 +1,4 @@
+//it contains findelement, findelements, id, cssSelector, className, scrolling, alert, conditions, parameterized methods
 package Selenium_test;
 
 import java.time.Duration;
@@ -5,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,6 +37,7 @@ public class FirstTest {
 		ft.confirmationalert();
 		ft.promptalert("Carrot");
 
+		Thread.sleep(5000);
 		driver.manage().window().minimize();
 		driver.quit();
 		System.out.println("Chrome browser closed");
@@ -105,6 +108,9 @@ public class FirstTest {
 	}
 	
 	public void promptalert(String name) throws InterruptedException {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("window.scroll(0,500)"); //scrolling the page
+		
 		WebElement prompt = driver.findElement(By.id("promptBtn"));
 		prompt.click();
 		Alert alert = driver.switchTo().alert();  //alert can be initialize like this also
@@ -121,6 +127,8 @@ public class FirstTest {
 			System.out.println("Error");
 		}
 	}
+	
+	
 }
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
