@@ -112,7 +112,7 @@ public class FirstTest {
 		Thread.sleep(2000);
 		alert.accept();
 		
-		WebElement usertext = driver.findElement(By.id("demo"));
+		WebElement usertext = driver.findElement(By.id("demo")); //verifying the text is reflected 
 		if((usertext).getText().contains(name)) {
 			System.out.println("Value entered in alert textbox");
 		}
