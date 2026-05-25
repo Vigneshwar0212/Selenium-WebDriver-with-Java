@@ -3,6 +3,7 @@ package Selenium_test;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,11 +14,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class FirstTest {
 	static String url = "https://testautomationpractice.blogspot.com/";
 	static WebDriver driver;
-	//static WebDriverWait wait;  we can also declare the wait as static.
+	static WebDriverWait wait;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		driver = new ChromeDriver();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); //we can also use WebDriverWait type for individual methods
+		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		driver.get(url);
 		driver.manage().window().maximize();
 		System.out.println("Chrome browser opened");
@@ -28,6 +30,10 @@ public class FirstTest {
 		ft.textbox("Apple", "apple@gmail.com", 9856985687L, "No.898, Banana street, Chennai 98");
 		ft.radiobox();
 		ft.checkbox();
+		ft.dynamicbt();
+		ft.simplealert();
+		ft.confirmationalert();
+		ft.promptalert("Carrot");
 
 		driver.manage().window().minimize();
 		driver.quit();
@@ -74,6 +80,47 @@ public class FirstTest {
 		System.out.println("Days selected: "+selected_count);
 	}
 
+	public void dynamicbt()
+	{
+		WebElement start_bt = driver.findElement(By.cssSelector(".start"));
+		if(start_bt.getText().equals("START")) {
+			start_bt.click();
+		}
+		else {
+			WebElement stop_bt = driver.findElement(By.cssSelector("button.stop"));
+			stop_bt.click();
+		}
+	}
+	
+	public void simplealert() {
+		WebElement simple = driver.findElement(By.id("alertBtn"));
+		simple.click();
+		driver.switchTo().alert().accept();  //alert accepting - switchTo will switch the focus page which need to be tested
+	}
+	
+	public void confirmationalert() {
+		WebElement confirm = driver.findElement(By.id("confirmBtn"));
+		confirm.click();
+		driver.switchTo().alert().accept();
+	}
+	
+	public void promptalert(String name) throws InterruptedException {
+		WebElement prompt = driver.findElement(By.id("promptBtn"));
+		prompt.click();
+		Alert alert = driver.switchTo().alert();  //alert can be initialize like this also
+		alert.sendKeys(name); //entering the user value to the alert text box
+		Thread.sleep(2000);
+		alert.accept();
+		
+		WebElement usertext = driver.findElement(By.id("demo"));
+		if((usertext).getText().contains(name)) {
+			System.out.println("Value entered in alert textbox");
+		}
+		else
+		{
+			System.out.println("Error");
+		}
+	}
 }
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
